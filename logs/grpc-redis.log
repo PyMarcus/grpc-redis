@@ -1,0 +1,6 @@
+2025/07/04 21:26:53 logger.go:27: Logit has been initialized!
+2025/07/04 21:26:53 redis_repository.go:28: Fail to connect with redis: dial tcp: address Addr:localhost:6379: too many colons in address
+2025/07/04 21:27:51 logger.go:27: Logit has been initialized!
+2025/07/04 21:27:51 redis_repository.go:29: Fail to connect with redis: dial tcp 127.0.0.1:6379: connect: connection refused
+2025/07/04 21:29:05 logger.go:27: Logit has been initialized!
+2025/07/04 21:29:05 redis_repository.go:29: Fail to connect with redis: dial tcp: lookup redis-grpc on 127.0.0.53:53: server misbehaving

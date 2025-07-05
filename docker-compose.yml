@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  grpc-redis-app:
+    build: .
+    container_name: grpc-redis-app 
+    depends_on:
+      - redis-grpc 
+    ports:
+     - "50051:50051"
+    environment:
+      REDIS_HOST: redis-grpc 
+      REDIS_PORT: 6379
+    restart: unless-stopped 
+    
+  redis-grpc:
+    image: redis:7.2-alpine      
+    container_name: redis-grpc 
+    restart: unless-stopped
+    command: ["redis-server", "--appendonly", "yes"]
+    ports:
+      - "6349:6379"
+    volumes:
+      - redis_data:/data
+
+volumes:
+  redis_data:
