@@ -19,6 +19,8 @@ func NewRedisRepository(ip, port string) *RedisRepository{
 		Addr:fmt.Sprintf("%s:%s",ip,port),
 		Password: "",
 		DB: 0,
+		PoolSize: 100,
+		MinIdleConns: 10,
 	})}
 }
 
