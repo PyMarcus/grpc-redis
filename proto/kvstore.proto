@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "/proto;proto";
+
+service KVStore {
+  rpc Get(GetRequest) returns (GetResponse);
+  rpc Set(SetRequest) returns (SetResponse);
+  rpc Del(DelRequest) returns (DelResponse);
+
+  // Streaming bidirecional para inserção em lote
+  rpc StreamSet(stream SetRequest) returns (stream SetResponse);
+
+  // Streaming bidirecional para leitura em lote
+  rpc StreamGet(stream GetRequest) returns (stream GetResponse);
+}
+
+message GetRequest {
+  string key = 1;
+}
+
+message GetResponse {
+  string key = 1;
+  string value = 2;
+  string error = 3; // se falhar
+}
+
+message SetRequest {
+  string key = 1;
+  string value = 2;
+}
+
+message SetResponse {
+  string key = 1;
+  bool success = 2;
+  string error = 3;
+}
+
+message DelRequest {
+  string key = 1;
+}
+
+message DelResponse {
+  string value = 1;
+}

@@ -1,6 +1,6 @@
 import grpc
-import proto.proto.pb2 as pb2
-import proto.proto.pb2_grpc as grpc2
+import proto.kvstore_pb2 as pb2
+import proto.kvstore_pb2_grpc as grpc2
 
 
 def run():

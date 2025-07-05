@@ -22,7 +22,7 @@ func main() {
 
 	_context := context.Background()
 
-	redisRepository := repository.NewRedisRepository("redis-grpc", "6379")
+	redisRepository := repository.NewRedisRepository("redis-grpc:6379")
 	redisRepository.Connect(_context)
 
 	server := grpc.NewGRPCServer(redisRepository)
